@@ -35,7 +35,7 @@ $(document).ready(function() {
 		}
 	});
 	
-	var rows = $('.table tr');
+	var rows = $('tr:not(.header)');
 	$('#search').keyup(function() {
 		var val = $.trim($(this).val()).replace(/ +/g, ' ').toLowerCase();
 		
