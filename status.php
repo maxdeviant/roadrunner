@@ -1,11 +1,9 @@
 <?php
-	//$filename = "data/raw.json";
+	$filename = "data/users.json";
 
-	//$file = fopen("data/raw.json", "r");
-	//$userlist = json_decode(fread($file, filesize($filename)), true);
-	//fclose($file);
-
-	$userlist = $_POST['json'];
+	$file = fopen($filename, "r");
+	$userlist = json_decode(fread($file, filesize($filename)), true);
+	fclose($file);
 
 	foreach ($userlist as $key => $val) {
 		$script = 'wget --spider -S ' . $val['url'] . ' 2>&1 | grep "HTTP/" | awk \'{print $2}\'';
